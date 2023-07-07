@@ -6,12 +6,13 @@
 
 :root {
     --red:hsl(0, 100%, 74%);
-    --green:hsl(154, 59%, 51%);
-    --blue: hsl(248, 32%, 49%);
-    --grayish-blue: hsl(249, 10%, 26%);
-    --dark-blue: hls(249, 10%, 26%);
-    --font-stack: 'Poppins', sans-serif;
-    --light-weigth: 400;
+    --green: hsl(154, 59%, 51%);
+    --blue:hsl(248, 32%, 49%);
+    --grayish-blue: hsl(246, 25%, 77%);
+    --dark-blue: hsl(249, 10%, 26%);
+    --font-stack:
+    'Poppins', sans-serif;
+    --light-weight: 400;
     --medium-weight: 500;
     --bold-weight: 700;
 }
@@ -21,16 +22,16 @@ html {
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: var(--red);
-    background-image: url("./assets/images/bg-intro-desktop.png");
+    background-image: url("./assets/Img/images/bg-intro-desktop.png");
     background-size: cover;
     font-family: var(--font-stack);
     display: grid;
     align-items: center;
+    justify-items: center;
 }
-    
 
 a {
     text-decoration: none;
@@ -49,7 +50,7 @@ button {
     grid-template-rows: 1fr 2fr;
 }
 
-.info-container {
+.info-container{
     width: 100%;
     height: 100%;
     display: flex;
@@ -64,6 +65,7 @@ button {
     font-weight: var(--bold-weight);
     text-align: center;
     color: white;
+
 }
 
 .info-container p {
@@ -72,7 +74,7 @@ button {
     color: white;
 }
 
-.suscription-container {
+.subscription-container {
     width: 100%;
     height: auto;
     display: grid;
@@ -80,19 +82,19 @@ button {
     grid-template-rows: 80px 1fr;
     justify-items: center;
     padding: 20px 30px;
-    
+    animation: 1s sideContent 0.5s ease-in-out;
 }
 
-
 .discount-card {
-   width: inherit;
-   height: 60px;
-   background-color: var(--blue);
-   border-radius: 10px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    width: inherit;
+    height: 60px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .discount-card p {
@@ -132,11 +134,10 @@ button {
     border-radius: 5px;
     border: 1px solid #dcdcdc;
     padding: 10px 20px;
-
 }
 
 .signup input:focus {
-    outline: 1px solid #000;
+    outline: 1px solid #000000;
 }
 
 .signup button {
@@ -148,24 +149,54 @@ button {
     font-weight: var(--bold-weight);
 }
 
+.signup button:hover {
+    transform: scale(1.05);
+}
+
+
 .form-container p {
-    padding: 0 25px;
     text-align: center;
     font-size: 0.8rem;
+    padding: 0 25px;
     color: #b9b6d3;
 }
 
 .form-container p a {
     color: var(--red);
     font-weight: var(--bold-weight);
-    
 }
 
+@media (min-width: 650px) {
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container > .info-container {
+        width: 35%;
+    }
+    .info-container h1 {
+        font-size: 3.5rem;
+        text-align: left;
+    }
+    .info-container p {
+        text-align: left;
+        font-size: 1.1rem;
+    }
+    .container .subscription-container {
+        max-width: 450px;
+    }
+    .subscription-container .discount-card {
+        height: 45px;
+    }
+}
 
-
-
-
-
-    
-
-   
+@keyframes sideContent {
+    0% {
+        transform: translateX(900px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
